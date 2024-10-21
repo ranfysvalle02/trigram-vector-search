@@ -114,7 +114,7 @@ Given the limitations of cosine similarity with discrete embeddings, I explored 
 
 **Definition:** Measures the overlap between two sets by comparing the size of their intersection to the size of their union.
 
-![](https://miro.medium.com/v2/resize:fit:1400/1*98-7RC6yGrWdcjQRnDeaPw.png)
+![](https://imgs.search.brave.com/5puihAbIeyg4_PpgohYkeaqQQyu-d2krI2OVHdvq_cw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZWVrc2Zvcmdl/ZWtzLm9yZy93cC1j/b250ZW50L3VwbG9h/ZHMvMjAyMzA4MTEx/MzI2MDgvSG93LXRv/LUNhbGN1bGF0ZS1K/YWNjYXJkLVNpbWls/YXJpdHktaW4tUHl0/aG9uLTIucG5n)
 
 - **Suitable for:** Comparing sets of trigrams to see how many trigrams are shared between two strings.
 - **Limitations:** Can be too strict, especially when dealing with small sets or when the intersection is small compared to the union.
