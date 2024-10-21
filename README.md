@@ -218,25 +218,6 @@ db = mdb_client['sample_mflix']
 movies_collection = db['movies']
 ```
 
-### Processing the Movie Titles
-
-I extracted the movie titles from the `movies` collection and generated trigram hash embeddings for each title.
-
-```python
-# Process movies from MongoDB
-movies_cursor = movies_collection.find({}, {'title': 1})
-
-# Add movie titles to vector store
-for movie in movies_cursor:
-    title = movie.get('title')
-    if title:
-        embedding = trigram_hash(title)
-        add_to_store(title, embedding)
-```
-
-- **Data Cleaning:** Ensure that the titles are properly formatted and handle any missing or special characters.
-- **Embedding Generation:** Use the previously defined `trigram_hash` function to create embeddings for each title.
-
 ### Benefits of Using the Sample Dataset
 
 - **Testing at Scale:** With a large number of titles, I could test the performance and scalability of the similarity search.
