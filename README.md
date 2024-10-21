@@ -191,6 +191,59 @@ def combined_similarity(set1, set2, vec1, vec2):
 - **Balanced Weighting:** Assigning equal weights ensures neither measure dominates, providing a more nuanced similarity score.
 - **Improved Accuracy:** This approach leverages both the content overlap and the structural similarities, leading to more accurate and intuitive results.
 
+### Deep Dive: Limitations of Cosine Similarity with Sparse Embeddings
+
+To better grasp why cosine similarity wasn't effective for our trigram hash embeddings, let's explore how cosine similarity works and why it may not suit sparse, discrete data.
+
+#### How Cosine Similarity Works
+
+**Cosine similarity** measures the cosine of the angle between two non-zero vectors in an inner product space. It is calculated as:
+
+\[
+\text{Cosine Similarity} = \frac{\mathbf{A} \cdot \mathbf{B}}{\|\mathbf{A}\| \times \|\mathbf{B}\|}
+\]
+
+Where:
+- \(\mathbf{A} \cdot \mathbf{B}\) is the dot product of vectors **A** and **B**.
+- \(\|\mathbf{A}\|\) and \(\|\mathbf{B}\|\) are the magnitudes (Euclidean norms) of the vectors.
+
+**Key Points:**
+- **Values Range:** Between -1 and 1, where 1 means identical direction, 0 means orthogonal, and -1 means opposite direction.
+- **Focus on Direction:** It assesses the orientation of vectors, not their magnitude.
+
+#### Why It Suits Continuous, Dense Vectors
+
+Cosine similarity excels with vectors that are:
+- **Continuous:** Elements are real numbers representing meaningful quantities.
+- **Dense:** Most elements are non-zero, fully utilizing the vector space.
+
+**Example:** Word embeddings from models like Word2Vec capture semantic meaning in continuous, dense vectors, making cosine similarity effective in measuring their similarity.
+
+#### Limitations with Sparse, Discrete Embeddings
+
+Our trigram hash embeddings are:
+- **Sparse:** Contain many zeros since each string only has a few trigrams out of a large possible set.
+- **Discrete:** Elements are integer hash values, not continuous features.
+
+**Issues:**
+1. **Low Overlap:** Sparse vectors have minimal shared non-zero dimensions, leading to small dot products.
+2. **Arbitrary Values:** Hash codes are arbitrary integers; their numerical values don't represent semantic similarity.
+3. **Variable Lengths:** Different strings produce embeddings of varying lengths, complicating vector operations.
+
+**Consequences:**
+- **Unreliable Similarity Scores:** Cosine similarity may yield misleading results due to minimal overlap and arbitrary hash values.
+- **Numerical Coincidences:** Similarity scores might be high for unrelated strings if their hash values coincidentally align.
+
+#### Why Set-Based Measures Are More Appropriate
+
+Set-based similarity measures like the **Dice coefficient** focus on the presence or absence of elements, not their numerical values.
+
+**Advantages:**
+- **Handles Sparsity Well:** Evaluates the overlap between sets of trigrams regardless of vector length or element values.
+- **Intuitive Interpretation:** The similarity score directly reflects shared content.
+
+Cosine similarity is less effective for sparse, discrete embeddings because it relies on vector directions and magnitudes that don't meaningfully represent the data. Set-based measures like the Dice coefficient are better suited for such data, as they directly assess the overlap of elements, providing a more accurate and intuitive measure of similarity.
+
 ---
 
 ## Integrating the MongoDB Atlas Sample Dataset
