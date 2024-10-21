@@ -400,11 +400,12 @@ The Animatrix: 0.7356053620466556
 With the combined similarity measure, the top similar movies to `"The Matrix"` are:
 
 ```
-The Matrix: 1.0000
-The Matriarch: 0.8332
-The Matrimony: 0.7725
-The Mark: 0.7387
-The Animatrix: 0.7356
+Top 5 similar movie titles to 'The Matrix':
+The Matrix: 1.0
+The Matriarch: 0.833208385651946
+The Matrimony: 0.7725459392292349
+The Mark: 0.7387173574923005
+The Animatrix: 0.7356053620466556
 ```
 
 **Analysis:**
