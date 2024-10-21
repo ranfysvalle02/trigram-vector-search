@@ -376,6 +376,15 @@ query_embedding = trigram_hash(query_title)
 similar_movies = search_store_combined(query_embedding)
 for movie, similarity in similar_movies:
     print(f"{movie}: {similarity:.4f}")
+
+"""
+Top 5 similar movie titles to 'The Matrix':
+The Matrix: 1.0
+The Matriarch: 0.833208385651946
+The Matrimony: 0.7725459392292349
+The Mark: 0.7387173574923005
+The Animatrix: 0.7356053620466556
+"""
 ```
 
 **Notes:**
@@ -453,7 +462,3 @@ I hope this blog post helps others navigate similar challenges and accelerates t
 - **Jaccard Index:** [Wikipedia](https://en.wikipedia.org/wiki/Jaccard_index)
 - **Dice Coefficient:** [Wikipedia](https://en.wikipedia.org/wiki/S%C3%B8rensen%E2%80%93Dice_coefficient)
 - **Hash Functions:** [MD5](https://en.wikipedia.org/wiki/MD5)
-
----
-
-**Feel free to share your thoughts or questions in the comments below!**
