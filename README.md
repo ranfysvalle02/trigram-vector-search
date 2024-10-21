@@ -191,25 +191,13 @@ def combined_similarity(set1, set2, vec1, vec2):
 - **Balanced Weighting:** Assigning equal weights ensures neither measure dominates, providing a more nuanced similarity score.
 - **Improved Accuracy:** This approach leverages both the content overlap and the structural similarities, leading to more accurate and intuitive results.
 
-### Deep Dive: Limitations of Cosine Similarity with Sparse Embeddings
+### Limitations of Cosine Similarity with Sparse Embeddings
 
 To better grasp why cosine similarity wasn't effective for our trigram hash embeddings, let's explore how cosine similarity works and why it may not suit sparse, discrete data.
 
 #### How Cosine Similarity Works
 
 **Cosine similarity** measures the cosine of the angle between two non-zero vectors in an inner product space. It is calculated as:
-
-\[
-\text{Cosine Similarity} = \frac{\mathbf{A} \cdot \mathbf{B}}{\|\mathbf{A}\| \times \|\mathbf{B}\|}
-\]
-
-Where:
-- \(\mathbf{A} \cdot \mathbf{B}\) is the dot product of vectors **A** and **B**.
-- \(\|\mathbf{A}\|\) and \(\|\mathbf{B}\|\) are the magnitudes (Euclidean norms) of the vectors.
-
-**Key Points:**
-- **Values Range:** Between -1 and 1, where 1 means identical direction, 0 means orthogonal, and -1 means opposite direction.
-- **Focus on Direction:** It assesses the orientation of vectors, not their magnitude.
 
 #### Why It Suits Continuous, Dense Vectors
 
