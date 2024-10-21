@@ -114,9 +114,7 @@ Given the limitations of cosine similarity with discrete embeddings, I explored 
 
 **Definition:** Measures the overlap between two sets by comparing the size of their intersection to the size of their union.
 
-\[
-\text{Jaccard Similarity} = \frac{|A \cap B|}{|A \cup B|}
-\]
+![](https://miro.medium.com/v2/resize:fit:1400/1*98-7RC6yGrWdcjQRnDeaPw.png)
 
 - **Suitable for:** Comparing sets of trigrams to see how many trigrams are shared between two strings.
 - **Limitations:** Can be too strict, especially when dealing with small sets or when the intersection is small compared to the union.
@@ -137,9 +135,7 @@ def jaccard_similarity(set1, set2):
 
 **Definition:** A variation of Jaccard that weighs the overlap more heavily by doubling the size of the intersection.
 
-\[
-\text{Dice Coefficient} = \frac{2 \times |A \cap B|}{|A| + |B|}
-\]
+![](https://www.quantib.com/hs-fs/hubfs/Content%20and%20assets/Blog%20and%20news%20images/Dice%20coefficient.jpg?width=1427&name=Dice%20coefficient.jpg)
 
 - **Benefits:** More lenient than Jaccard, giving higher similarity scores for partial overlaps, which is beneficial when comparing strings that may have minor differences.
 
