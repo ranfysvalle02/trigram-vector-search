@@ -197,7 +197,7 @@ To better grasp why cosine similarity wasn't effective for our trigram hash embe
 
 #### How Cosine Similarity Works
 
-**Cosine similarity** measures the cosine of the angle between two non-zero vectors in an inner product space. It is calculated as:
+**Cosine similarity** measures the cosine of the angle between two non-zero vectors in an inner product space.
 
 #### Why It Suits Continuous, Dense Vectors
 
