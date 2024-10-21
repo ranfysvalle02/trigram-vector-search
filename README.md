@@ -13,6 +13,7 @@ We'll explore:
 - Understanding **trigram hashing** and how to implement it.
 - Evaluating different **similarity measures** and their suitability for different types of embeddings.
 - Techniques for **optimizing code** for better performance and accuracy.
+- **Integrating the MongoDB Atlas Sample Dataset** for practical application.
 - **Lessons learned** from troubleshooting and refining the approach.
 
 By sharing these insights, I aim to provide a comprehensive and educational resource for anyone looking to implement text similarity search in their projects.
@@ -189,6 +190,58 @@ def combined_similarity(set1, set2, vec1, vec2):
 - **Complementary Strengths:** Set-based measures capture exact matches of trigrams, while cosine similarity considers the overall shape and magnitude of the embeddings.
 - **Balanced Weighting:** Assigning equal weights ensures neither measure dominates, providing a more nuanced similarity score.
 - **Improved Accuracy:** This approach leverages both the content overlap and the structural similarities, leading to more accurate and intuitive results.
+
+---
+
+## Integrating the MongoDB Atlas Sample Dataset
+
+To apply this method in a practical context, I used the **MongoDB Atlas Sample Dataset**, specifically the `sample_mflix` database, which contains a collection of movie data. This dataset provided a rich source of movie titles to test and refine the similarity search implementation.
+
+### Why Use the MongoDB Atlas Sample Dataset?
+
+- **Real-World Data:** The dataset includes thousands of movie titles, offering a realistic scenario for testing the similarity search.
+- **Ease of Access:** MongoDB Atlas provides the sample dataset readily available, simplifying data retrieval.
+- **Variety of Titles:** The dataset contains titles with varying lengths, languages, and character sets, challenging the robustness of the similarity measures.
+
+### Setting Up the Dataset
+
+1. **Create a MongoDB Atlas Account:** If you don't have one already, sign up for a free account at [MongoDB Atlas](https://www.mongodb.com/cloud/atlas).
+2. **Load the Sample Dataset:** Follow the instructions to add the sample datasets to your cluster.
+3. **Connect to the Database:** Use the connection string provided by MongoDB Atlas to connect your application to the database.
+
+```python
+import pymongo
+
+# MongoDB connection (replace with your connection string)
+mdb_client = pymongo.MongoClient('your_mongodb_connection_string')
+db = mdb_client['sample_mflix']
+movies_collection = db['movies']
+```
+
+### Processing the Movie Titles
+
+I extracted the movie titles from the `movies` collection and generated trigram hash embeddings for each title.
+
+```python
+# Process movies from MongoDB
+movies_cursor = movies_collection.find({}, {'title': 1})
+
+# Add movie titles to vector store
+for movie in movies_cursor:
+    title = movie.get('title')
+    if title:
+        embedding = trigram_hash(title)
+        add_to_store(title, embedding)
+```
+
+- **Data Cleaning:** Ensure that the titles are properly formatted and handle any missing or special characters.
+- **Embedding Generation:** Use the previously defined `trigram_hash` function to create embeddings for each title.
+
+### Benefits of Using the Sample Dataset
+
+- **Testing at Scale:** With a large number of titles, I could test the performance and scalability of the similarity search.
+- **Diverse Data:** The variety of titles helped identify edge cases and improve the robustness of the implementation.
+- **Realistic Scenarios:** Mimicking a real-world application, the dataset allowed for practical insights and adjustments.
 
 ---
 
