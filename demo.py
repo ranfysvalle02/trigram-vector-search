@@ -110,3 +110,12 @@ print(f"Top 5 similar movie titles to '{query_title}':")
 similar_movies = search_store_combined(query_embedding)
 for movie, similarity in similar_movies:
     print(f"{movie}: {similarity}")
+
+"""
+Top 5 similar movie titles to 'The Matrix':
+The Matrix: 1.0
+The Matriarch: 0.833208385651946
+The Matrimony: 0.7725459392292349
+The Mark: 0.7387173574923005
+The Animatrix: 0.7356053620466556
+"""
