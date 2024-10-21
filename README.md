@@ -1,4 +1,6 @@
-# Enhancing Text Similarity Search with Trigram Hashing and Combined Similarity Measures
+# Combined Similarity Measures For Trigram Hashing Vector Search
+
+![](https://images.contentstack.io/v3/assets/bltac01ee6daa3a1e14/bltbfd3d7e3452e01c7/65de3a8c6e7edb400cb4f753/img_blog_image2_inline.png?width=1024&disable=upscale&auto=webp)
 
 ## Introduction
 
