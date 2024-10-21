@@ -4,7 +4,7 @@
 
 In the world of text processing and search, finding similar strings or documents is a common yet challenging task. Whether it's for spell-checking, plagiarism detection, or recommendation systems, efficient and accurate text similarity measures are essential.
 
-In this blog post, I share my journey of implementing a text similarity search using **trigram hashing**, optimizing the code, and improving the similarity measures to achieve better results. Along the way, I encountered several challenges and learned valuable lessons that I hope will help others avoid similar pitfalls.
+In this post, I share my journey of implementing a text similarity search using **trigram hashing**, optimizing the code, and improving the similarity measures to achieve better results. Along the way, I encountered several challenges and learned valuable lessons that I hope will help others avoid similar pitfalls.
 
 We'll explore:
 
@@ -451,15 +451,4 @@ Implementing an effective text similarity search involves careful consideration 
 
 This journey taught me the importance of selecting appropriate similarity measures for the type of embeddings used and the value of combining different approaches to capture the nuances of text similarity.
 
-I hope this blog post helps others navigate similar challenges and accelerates their development process. Remember, experimentation and iteration are key to finding the optimal solution for your specific use case.
-
----
-
-## References
-
-- **Text Similarity Measures:** [Wikipedia](https://en.wikipedia.org/wiki/String_metric)
-- **Trigram Analysis:** [Wikipedia on N-gram](https://en.wikipedia.org/wiki/N-gram)
-- **Cosine Similarity:** [Wikipedia](https://en.wikipedia.org/wiki/Cosine_similarity)
-- **Jaccard Index:** [Wikipedia](https://en.wikipedia.org/wiki/Jaccard_index)
-- **Dice Coefficient:** [Wikipedia](https://en.wikipedia.org/wiki/S%C3%B8rensen%E2%80%93Dice_coefficient)
-- **Hash Functions:** [MD5](https://en.wikipedia.org/wiki/MD5)
+I hope this post helps others navigate similar challenges and accelerates their development process. Remember, experimentation and iteration are key to finding the optimal solution for your specific use case.
